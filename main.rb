@@ -95,32 +95,32 @@ while true
 
     shelter[:clients].each do |client|
       if client.name == client_name
+        # Naming the key. The key would be var=dog.name and value=dog.
         client.pets[dog.name] = dog
         shelter[:dogs].delete(dog)
       end
     end
+  elsif userSelection == 6
+    print "Client's name: "
+    client_name = gets.chomp
+    print "Name of dog up for adoption: "
+    dog_name = gets.chomp
+
+    shelter[:clients].each do |client|
+      if client.name == client_name
+        shelter[:dogs] << client.pets[dog_name]
+        client.pets.delete(dog_name)
+      end
+    end
 
 
-  #   shelter[:dogs].each do |dog|
-  #     if dog.name == dog_name
-  #       shelter[:clients].each do |client|
-  #         if client.name == client_name
-  #           client.num_of_pets.push(dog)
-  #         end
-  #       end
-  #       shelter[:dogs].delete(dog)
-  #     end
-  #   end
-  #   print shelter[:dogs]
-  #   print shelter[:clients]
-  # elsif userSelection == 6
-  #   print "Client's name: "
-  #   client_name = gets.chomp
-  #   print "Name of dog up for adoption: "
-  #   dog_name = gets.chomp
-  #
-  #   # Find Client
-  #   # Find Client's dog
+
+
+    # client = locate_client_dog(client_name, shelter)
+
+
+    # Find Client
+    # Find Client's dog
   #   shelter[:clients].each do |client|
   #     if client.name == client_name
   #       client.num_of_pets.name == dog_name
@@ -129,6 +129,6 @@ while true
   #     # client.delete(num_of_pets)
   #   end
   end
+  # binding.pry
+  binding.pry
 end
-
-binding.pry
